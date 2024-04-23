@@ -363,6 +363,18 @@ class TargetGUI(object):
        stderr_logger = logging.getLogger('STDERR')
        sl = LoggerRedirect(stderr_logger, logging.ERROR,textField)
        sys.stderr = sl
+       frame = Frame(win)
+       frame.pack()
+       textField = Text(frame, height=20, width=132, background='white', foreground='black', borderwidth='5', relief='sunken')
+       textField.pack(side=TOP, fill='both', expand=YES)
+       load_demo_button = Button(frame, text='Load Demo Firmware', command=self.doBlinkLED)
+       load_demo_button.pack(side=LEFT)
+       open_user_button = Button(frame, text='Open User Firmware...', command=self.selectFile, state=DISABLED)
+       open_user_button.pack(side=LEFT)
+       rescan_button = Button(frame, text='Rescan HID Bus...', command=lambda: self.lookForDevice('Yes'))
+       rescan_button.pack(side=LEFT)
+       quit_button = Button(frame, text='Quit', command=win.quit)
+       quit_button.pack(side=LEFT)
 
        # Make the menu
        submenu = Menu(top, tearoff=False)
