@@ -122,7 +122,7 @@ class TargetGUI(object):
 
         self.myHandler=self.TextAreaHander()
         self.myHandler.setTG(self)
-	self.logger.addHandler(self.myHandler)
+        self.logger.addHandler(self.myHandler)
 
 
 
@@ -196,7 +196,7 @@ class TargetGUI(object):
             self.updateBar()
 
         if self.bsl5Target.options.do_wait:
-            raw_input()
+            input()
 
         # Wait for the just programmed device to reset
         time.sleep(1)
